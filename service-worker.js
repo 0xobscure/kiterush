@@ -1,7 +1,7 @@
 /* Kite Rush service worker — offline caching.
    HTML: network-first (fresh builds appear on next load; cache is the offline fallback).
    Assets: cache-first (icons/manifest rarely change). */
-const CACHE = 'kite-rush-v7';
+const CACHE = 'kite-rush-v8';
 const ASSETS = [
   './',
   './index.html',

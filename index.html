@@ -316,7 +316,6 @@
     {id:'sunset', name:'Sunset', price:120,body:'#ff7e5f',wing:'#fff3e6',accent:'#feb47b',tail:['#ff7e5f','#feb47b']},
     {id:'mint',   name:'Mint',   price:150,body:'#2ec4b6',wing:'#f0fff9',accent:'#9ef0e4',tail:['#2ec4b6','#bdf3ec']},
     {id:'cherry', name:'Cherry', price:180,body:'#ff3b6b',wing:'#fff0f5',accent:'#ffd23f',tail:['#ff3b6b','#ffd0de']},
-    {id:'shadow', name:'Shadow', price:480,lv:4,body:'#2b2b33',wing:'#aab0c6',accent:'#7a82a0',tail:['#2b2b33','#aab0c6']},
     {id:'galaxy', name:'Galaxy', price:720,lv:6,body:'#6a4cff',wing:'#e9e4ff',accent:'#c08bff',tail:['#6a4cff','#c08bff']},
     {id:'gold',   name:'Gold Rush',price:1400,lv:8,body:'#ffb300',wing:'#fff6d6',accent:'#ff7a00',tail:['#ffb300','#fff6d6']},
   ];
@@ -324,6 +323,10 @@
   try{ ownedSkins=new Set(JSON.parse(localStorage.getItem('kiterush_owned')||'["classic"]')); }catch(e){ ownedSkins=new Set(['classic']); }
   ownedSkins.add('classic');
   try{ selectedSkin=localStorage.getItem('kiterush_skin')||'classic'; }catch(e){ selectedSkin='classic'; }
+  // migration: Shadow skin retired — refund owners and revert to Classic
+  if(ownedSkins.delete('shadow')){ ribbons+=480; saveWallet(); }
+  if(selectedSkin==='shadow') selectedSkin='classic';
+  saveSkins();
   function saveSkins(){ try{ localStorage.setItem('kiterush_owned',JSON.stringify([...ownedSkins])); localStorage.setItem('kiterush_skin',selectedSkin); }catch(e){} }
   function skin(){ return SKINS.find(s=>s.id===selectedSkin)||SKINS[0]; }
   try{ const g=localStorage.getItem('kiterush_ghost'); ghostData = g?JSON.parse(g):null; }catch(e){ ghostData=null; }
@@ -470,7 +473,7 @@
   function buildTail(){
     tail=[];
     const kx=kite.x, ky=kite.y+kite.r;
-    for(let i=0;i<14;i++) tail.push({x:kx,y:ky+i*8,px:kx,py:ky+i*8});
+    for(let i=0;i<5;i++) tail.push({x:kx,y:ky+i*8,px:kx,py:ky+i*8});
   }
 
   function reset(){
@@ -1469,7 +1472,7 @@
     ctx.beginPath();ctx.moveTo(kidX+20,kidY-44);ctx.quadraticCurveTo((kidX+kx)/2,(kidY+ky)/2,kx,ky+r*0.4);ctx.stroke();
     // tail
     const MT=tailColors();
-    for(let i=1;i<=6;i++){const ty=ky+r*1.2+i*r*0.5+Math.sin(menuT*3-i*0.6)*4, tx=kx+Math.sin(menuT*3-i*0.6)*r*0.5;
+    for(let i=1;i<=3;i++){const ty=ky+r*1.2+i*r*0.5+Math.sin(menuT*3-i*0.6)*4, tx=kx+Math.sin(menuT*3-i*0.6)*r*0.5;
       ctx.fillStyle=i%2?MT[0]:MT[1];ctx.beginPath();ctx.arc(tx,ty,r*0.12,0,7);ctx.fill();}
     // kite
     const MK=skin();
