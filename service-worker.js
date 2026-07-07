@@ -1,5 +1,5 @@
 /* Kite Rush service worker — offline caching */
-const CACHE = 'kite-rush-v4';
+const CACHE = 'kite-rush-v5';
 const ASSETS = [
   './',
   './index.html',
