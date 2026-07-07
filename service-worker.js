@@ -1,5 +1,7 @@
-/* Kite Rush service worker — offline caching */
-const CACHE = 'kite-rush-v5';
+/* Kite Rush service worker — offline caching.
+   HTML: network-first (fresh builds appear on next load; cache is the offline fallback).
+   Assets: cache-first (icons/manifest rarely change). */
+const CACHE = 'kite-rush-v6';
 const ASSETS = [
   './',
   './index.html',
@@ -24,16 +26,28 @@ self.addEventListener('activate', (e) => {
 
 self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET') return;
-  e.respondWith(
-    caches.match(e.request).then((cached) =>
-      cached ||
+  const accept = e.request.headers.get('accept') || '';
+  const isHTML = e.request.mode === 'navigate' || accept.includes('text/html');
+  if (isHTML) {
+    e.respondWith(
       fetch(e.request)
         .then((resp) => {
+          const copy = resp.clone();
+          caches.open(CACHE).then((c) => { c.put(e.request, copy); c.put('./index.html', resp.clone()); });
+          return resp;
+        })
+        .catch(() => caches.match(e.request).then((r) => r || caches.match('./index.html')))
+    );
+  } else {
+    e.respondWith(
+      caches.match(e.request).then((cached) =>
+        cached ||
+        fetch(e.request).then((resp) => {
           const copy = resp.clone();
           caches.open(CACHE).then((c) => c.put(e.request, copy));
           return resp;
         })
-        .catch(() => caches.match('./index.html'))
-    )
-  );
+      )
+    );
+  }
 });
