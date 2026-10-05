@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Kite Rush</string>
+    <string name="title_activity_main">Kite Rush</string>
+    <string name="package_name">app.kiterush.game</string>
+    <string name="custom_url_scheme">app.kiterush.game</string>
+</resources>
