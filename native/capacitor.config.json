@@ -1,0 +1,14 @@
+{
+  "appId": "app.kiterush.game",
+  "appName": "Kite Rush",
+  "webDir": "www",
+  "backgroundColor": "#4fa3e8",
+  "ios": { "contentInset": "never", "scrollEnabled": false, "allowsLinkPreview": false },
+  "android": { "backgroundColor": "#4fa3e8", "allowMixedContent": false },
+  "plugins": {
+    "SplashScreen": { "launchAutoHide": false, "backgroundColor": "#4fa3e8", "showSpinner": false, "androidScaleType": "CENTER_CROP" },
+    "StatusBar": { "overlaysWebView": true, "style": "DARK" },
+    "LocalNotifications": { "smallIcon": "ic_stat_kite", "iconColor": "#ff5a4e" },
+    "AdMob": {}
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "kite-rush-app",
+  "version": "2.2.0",
+  "private": true,
+  "description": "Kite Rush native wrapper (Capacitor) for iOS App Store and Google Play",
+  "scripts": {
+    "web": "node scripts/copy-web.js",
+    "sync": "npm run web && npx cap sync",
+    "ios": "npm run sync && npx cap open ios",
+    "android": "npm run sync && npx cap open android",
+    "assets": "npx @capacitor/assets generate --iconBackgroundColor '#4fa3e8' --splashBackgroundColor '#4fa3e8'"
+  },
+  "dependencies": {
+    "@capacitor-community/admob": "^8.0.0",
+    "@capacitor-community/in-app-review": "^8.0.0",
+    "@capacitor/android": "^8.0.0",
+    "@capacitor/app": "^8.0.0",
+    "@capacitor/core": "^8.0.0",
+    "@capacitor/haptics": "^8.0.0",
+    "@capacitor/ios": "^8.0.0",
+    "@capacitor/local-notifications": "^8.0.0",
+    "@capacitor/preferences": "^8.0.0",
+    "@capacitor/splash-screen": "^8.0.0",
+    "@capacitor/status-bar": "^8.0.0",
+    "cordova-plugin-purchase": "^13.18.0",
+    "kite-rush-game-center": "file:plugins/game-center"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.0.0"
+  }
+}
