@@ -7,7 +7,7 @@ These features are based on games that won awards or topped critics' lists in Ju
 | **BALL x PIT** (Apple Design Award finalist, Delight & Fun; mobile launch 12 Mar 2026) | Level-up picks, fusing two powers to free a slot, feeling overpowered within 20 minutes | **Updrafts** + **Fusion** |
 | **Pixel Flow!** (Pocket Gamer Mobile Games Awards 2026, Game of the Year) | Two daily 24 h competitive events drive daily return. Reviews punish levels that feel pay-gated. | **Daily ghost race** + shareable ghost links. No paid power in the daily. |
 | **Pine Hearts** (Apple Design Award, Inclusivity) | Accessibility options shown *before* the game starts | **"Before you fly"** first-launch screen |
-| **Grand Mountain Adventure 2** (ADA finalist, Interaction) | Gear is cosmetic, skill decides the result. Zen mode. | Cosmetic shop kept power-free. Zen mode is listed as the next feature. |
+| **Grand Mountain Adventure 2** (ADA finalist, Interaction) | Gear is cosmetic, skill decides the result. Zen mode. | Cosmetic shop kept power-free. Zen mode (below) is built. |
 | **Scritchy Scratchy** (critics' pick) | Reviews complained about PC-first touch targets | Left-handed layout. Updrafts never interrupt play. |
 
 ## Updrafts

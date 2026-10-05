@@ -1,6 +1,6 @@
 # Kite Rush v2 — QA log
 
-Coverage: 7 phone sizes (280–430 px wide), tablet 768×1024, desktop 1366×768 / 1440×900, rotation, backgrounding, reduced-motion, first-time-player idle run, all 5 zones, every screen and modal. Playwright + frame-by-frame visual review. Regression harness: `npm test` (22 checks, all passing).
+Coverage: 7 phone sizes (280–430 px wide), tablet 768×1024, desktop 1366×768 / 1440×900, rotation, backgrounding, reduced-motion, first-time-player idle run, all 5 zones, every screen and modal. Playwright + frame-by-frame visual review. Regression harness: `npm test` (200+ checks, all passing).
 
 ## Round 1 — 12 issues fixed
 | Sev | Issue | Fix |

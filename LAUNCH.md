@@ -70,6 +70,8 @@ npm run android    # same, opens Android Studio
 - Build → Generate Signed App Bundle (.aab).
 - Keep the keystore file and password safe forever.
 
+**Before archiving, run `npm run preflight`** (in `native/`). It fails on unfilled privacy/terms placeholders, test AdMob IDs paired with real ad units, or a Release build with debug on.
+
 Bump the version numbers for every upload:
 - **iOS:** `MARKETING_VERSION` / `CURRENT_PROJECT_VERSION`
 - **Android:** `versionName` / `versionCode` in `android/app/build.gradle`

@@ -1376,7 +1376,7 @@ function updTail(dt){
 }
 function updTitle(dt){
   runT+=dt;tgtX=180+Math.sin(runT*.8)*18;kite.x+=(tgtX-kite.x)*(1-Math.exp(-4*dt));
-  const pvx=kite.vx;kite.vx=Math.cos(runT*.8)*14;kite.tilt=clamp(kite.vx*.006,-.3,.3);
+  kite.vx=Math.cos(runT*.8)*14;kite.tilt=clamp(kite.vx*.006,-.3,.3);
   kite.y=camY+kite.ky+Math.sin(runT*1.6)*6;kite.look=[Math.sin(runT*.5),-.3];kite.scared=0;
   for(const e of ents)if(e.k==='coin')e.age+=dt;
 }

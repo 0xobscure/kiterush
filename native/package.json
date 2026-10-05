@@ -5,6 +5,7 @@
   "description": "Kite Rush native wrapper (Capacitor) for iOS App Store and Google Play",
   "scripts": {
     "web": "node scripts/copy-web.js",
+    "preflight": "node scripts/preflight.js",
     "sync": "npm run web && npx cap sync",
     "ios": "npm run sync && npx cap open ios",
     "android": "npm run sync && npx cap open android",
