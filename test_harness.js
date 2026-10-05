@@ -9,7 +9,7 @@ const URL = 'file://' + path.resolve(__dirname, 'index.html') + '?test=1';
 const shots = process.env.SHOTS || '';
 let fails = 0; const ok = (c, m) => { console.log((c ? '  ✓ ' : '  ✗ ') + m); if (!c) fails++; };
 (async () => {
-  const b = await chromium.launch();
+  const b = await chromium.launch(process.env.CHROMIUM ? { executablePath: process.env.CHROMIUM } : {});
   const mk = async (vp = { width: 390, height: 844 }, pre, o = {}) => {
     const ctx = await b.newContext({ viewport: vp, deviceScaleFactor: +(process.env.DSF||1), hasTouch: true, isMobile: vp.width < 600 });
     const p = await ctx.newPage(); p.errs = []; p.net = [];
