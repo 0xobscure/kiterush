@@ -1,0 +1,12 @@
+{
+  "name": "kite-rush",
+  "version": "2.2.0",
+  "private": true,
+  "description": "Kite Rush — one-thumb sky climber (single-file HTML5 game)",
+  "scripts": {
+    "serve": "npx --yes serve -l 5173 .",
+    "test": "node test_harness.js",
+    "test:shots": "SHOTS=. node test_harness.js"
+  },
+  "devDependencies": { "playwright": "^1.56.0" }
+}
